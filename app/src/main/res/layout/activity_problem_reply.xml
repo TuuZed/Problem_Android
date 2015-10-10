@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context="cn.lyh.problem.QuizActivity">
+
+    <include layout="@layout/include_toolbar_layout" />
+
+    <TextView
+        android:id="@+id/tv_problem"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:textSize="20sp"
+        android:background="#EEE"/>
+    <include layout="@layout/include_line_layout"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_reply"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="20"
+                android:textSize="16sp"
+                android:padding="10dp" />
+
+        </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

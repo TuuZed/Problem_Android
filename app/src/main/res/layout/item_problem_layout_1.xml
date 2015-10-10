@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_item"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="2dp"
+            android:background="@drawable/round"/>
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:text="TuuZed"
+            android:gravity="center_vertical"/>
+
+    </LinearLayout>
+
+
+    <include layout="@layout/include_reply_layout"/>
+
+    <include layout="@layout/include_line_layout"/>
+    <include layout="@layout/include_footer_layout"/>
+
+</LinearLayout>

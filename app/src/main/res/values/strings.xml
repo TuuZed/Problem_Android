@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">Problem</string>
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_sign_out">登出</string>
+    <string name="action_search">搜索</string>
+    <string name="action_about">关于</string>
+    <string name="action_release">发布</string>
+
+    <string name="action_edit">编辑</string>
+    <string name="action_praise">赞</string>
+
+
+    <string name="input_you_problem">写下你的问题</string>
+    <string name="add_problem_explain">添加问题的补充说明</string>
+    <string name="add_problem_topic">添加相应的话题</string>
+
+
+    <string name="home">首页</string>
+    <string name="quiz">提问</string>
+    <string name="enshrine">收藏</string>
+    <string name="manuscript">草稿</string>
+    <string name="more">更多</string>
+
+    <string name="title_activity_quiz">添加问题</string>
+
+
+    <string name="from">来自</string>
+
+    <string name="man">男</string>
+    <string name="woman">女</string>
+
+
+    <string name="login">登录</string>
+    <string name="reg">注册</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="wait">再想想</string>
+    <string name="remove">移除\t\t</string>
+    <string name="remove_success">移除成功</string>
+    <string name="reply_success">回答成功</string>
+    <string name="edit_success">修改成功</string>
+    <string name="praise_success">点赞成功</string>
+    <string name="enshrine_success">收藏成功</string>
+    <string name="this_enshrine">\t\t这条收藏？</string>
+    <string name="welcome_problem">\t欢迎来到Problem</string>
+    <string name="u_name">名字</string>
+    <string name="u_passwd">密码</string>
+    <string name="u_email">邮箱</string>
+    <string name="replied">答过</string>
+    <string name="quized">问过</string>
+    <string name="delete">删除</string>
+    <string name="save">保存</string>
+    <string name="sure_to_logout_and_exit_the_program">确定要登出并退出程序?</string>
+    <string name="and_then_press_an_exit_procedure">再按一次退出程序</string>
+
+    <string name="input_search_problem">输入要搜索的问题</string>
+    <string name="reply_not_null">回答内容不能为空</string>
+    <string name="networkunusable">网络不可用</string>
+    <string name="praised">您可能已经赞过了</string>
+    <string name="enshrined">您可能已经收藏过了</string>
+    <string name="problem_not_null">问题不能为空</string>
+    <string name="topic_not_null">话题不能为空</string>
+    <string name="release_success">发布成功</string>
+    <string name="release_not_success">发布失败，可能问题库中已存在类似问题</string>
+    <string name="name_email_passwd_not_null">名字，邮箱，密码不能为空</string>
+    <string name="enter_email">请输入正确的邮箱</string>
+    <string name="email_passwd_not_null">邮箱或密码为空</string>
+    <string name="sure_update_reply">确定要更新这个回答？</string>
+    <string name="sure_update_problem">确定要更新这个问题？</string>
+    <string name="sure_delete_manuscript">是否删除这条草稿？</string>
+    <string name="sure_save_manuscript">是否保存到草稿？</string>
+
+    <string name="connection_timeout">连接服务器器超时</string>
+
+
+    <string name="title_activity_main">首页</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_enshrine">收藏</string>
+    <string name="title_activity_manuscript">草稿</string>
+    <string name="title_activity_search">搜索</string>
+    <string name="title_activity_user_info">我的资料</string>
+    <string name="title_activity_problem">问题</string>
+    <string name="title_activity_add_reply">添加回答</string>
+    <string name="title_activity_update_reply">更新回答</string>
+    <string name="title_activity_update_problem">更新问题</string>
+    <string name="title_activity_edit_user_info">编辑资料</string>
+    <string name="title_activity_topic">TopicActivity</string>
+    <string name="title_activity_more">MoreActivity</string>
+    <string name="title_activity_reply">ReplyActivity</string>
+</resources>

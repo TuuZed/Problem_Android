@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:padding="10dp"
+        android:ellipsize="end"
+        android:text="微信设计的神细节有哪些？微信设计的神细节有哪些？"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:id="@+id/tv_problem" />
+
+    <TextView
+        android:id="@+id/tv_reply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="3"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="微信设计的神细节有哪些微信设计的神细节有哪些微信设计的神细节有哪些微信设计的神细节有哪些微信设计的神细节有哪些"
+        android:textColor="@color/text_color_fleet"
+        android:textSize="14sp" />
+
+    <include layout="@layout/include_line_layout" />
+</LinearLayout>

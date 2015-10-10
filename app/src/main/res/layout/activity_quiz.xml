@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context="cn.lyh.problem.QuizActivity">
+
+    <include layout="@layout/include_toolbar_layout"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/et_problem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_you_problem"
+                android:maxLength="30"
+                android:minHeight="60dp"/>
+            <EditText
+                android:id="@+id/et_topic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_problem_topic"
+                android:maxLength="10"
+                android:visibility="gone"
+                android:minHeight="60dp"/>
+            <EditText
+                android:id="@+id/et_explain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_problem_explain"
+                android:visibility="gone"
+                android:minHeight="60dp"/>
+            <ListView
+                android:id="@+id/lv_hint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>
