@@ -43,8 +43,11 @@
     <string name="praise_success">点赞成功</string>
     <string name="enshrine_success">收藏成功</string>
     <string name="this_enshrine">\t\t这条收藏？</string>
-    <string name="welcome_problem">\t欢迎来到Problem</string>
+    <string name="welcome_problem">\t欢迎来到“问题”</string>
     <string name="u_name">名字</string>
+    <string name="personal_introduction">一句话介绍</string>
+
+    <string name="u_sex">性别</string>
     <string name="u_passwd">密码</string>
     <string name="u_email">邮箱</string>
     <string name="replied">答过</string>

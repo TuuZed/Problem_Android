@@ -17,7 +17,6 @@ public class AboutActivity extends AppCompatActivity {
         initViews();
     }
     private void initViews() {
-
         ActivityManager.getManager().addActivity(this);
         if (Integer.parseInt(android.os.Build.VERSION.SDK + "") >= 19) {
             // level 19+

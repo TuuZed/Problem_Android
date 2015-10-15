@@ -36,7 +36,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
-                android:text="名字" />
+                android:text="@string/u_name" />
 
             <EditText
                 android:id="@+id/et_name"
@@ -48,7 +48,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
-                android:text="性别" />
+                android:text="@string/u_sex" />
 
 
             <LinearLayout
@@ -81,7 +81,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
-                android:text="一句话介绍" />
+                android:text="@string/personal_introduction" />
 
             <EditText
                 android:id="@+id/et_intro"

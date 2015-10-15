@@ -45,6 +45,8 @@
     <string name="this_enshrine">\t\tThis collection？</string>
     <string name="welcome_problem">\tWelcome to Problem</string>
     <string name="u_name">Name</string>
+    <string name="personal_introduction">Personal introduction</string>
+    <string name="u_sex">Sex</string>
     <string name="u_passwd">Password</string>
     <string name="u_email">E-mail</string>
     <string name="replied">Replied</string>

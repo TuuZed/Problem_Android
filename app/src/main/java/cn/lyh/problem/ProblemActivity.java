@@ -22,6 +22,7 @@ import org.json.JSONObject;
 
 import cn.lyh.problem.adapter.ProblemAdapter;
 import cn.lyh.problem.model.Problem;
+import cn.lyh.problem.utils.ActivityManager;
 import cn.lyh.problem.utils.ConfigInfo;
 import cn.lyh.problem.utils.Tools;
 
@@ -60,6 +61,7 @@ public class ProblemActivity extends AppCompatActivity implements SwipeRefreshLa
     }
 
     private void initViews() {
+        ActivityManager.getManager().addActivity(this);
         mToolbar = (Toolbar) findViewById(R.id.toobar);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(this);
