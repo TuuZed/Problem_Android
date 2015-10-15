@@ -11,6 +11,7 @@
         android:id="@+id/et_u_email"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:maxLines="1"
         android:inputType="textEmailAddress"
         android:hint="@string/u_email"/>
     <EditText
@@ -18,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:password="true"
+        android:maxLines="1"
         android:hint="@string/u_passwd"/>
 
 </LinearLayout>

@@ -33,7 +33,8 @@ public class ConfigInfo {
 
     public static class URL{
         //基础URL
-        private static final String BASE = "http://121.42.197.209:8080/Problem";
+
+        private static final String BASE = "http://服务器地址/Problem";
         //注册
         public static final String REGISTER = BASE+"/register";
         //登录
