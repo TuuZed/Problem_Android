@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -159,9 +160,12 @@ public class MainActivity extends ActionBarActivity implements SwipeRefreshLayou
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_about) {
-            //关于
-            startActivity(new Intent(this, AboutActivity.class));
+        if (id == R.id.action_github) {
+            Intent intent = new Intent();// 创建Intent对象
+            intent.setAction(Intent.ACTION_VIEW);// 为Intent设置动作
+            String data = "https://github.com/TuuZed/Problem_Android";
+            intent.setData(Uri.parse(data));// 为Intent设置数据
+            startActivity(intent);// 将Intent传递给Activity
             return true;
         }
         if (id == R.id.action_sign_out) {
