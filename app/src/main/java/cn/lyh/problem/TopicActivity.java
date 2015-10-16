@@ -153,7 +153,7 @@ public class TopicActivity extends AppCompatActivity implements SwipeRefreshLayo
             public void onSuccess(String s) {
                 super.onSuccess(s);
                 try {
-                    JSONObject object = new JSONObject(s);
+                    JSONObject object = new JSONObject(s.replace("null,",""));
                     if (object.getInt("code") == 100) {
                         isLast = object.getBoolean("last");
                         mAdapter.setIsLast(isLast);
