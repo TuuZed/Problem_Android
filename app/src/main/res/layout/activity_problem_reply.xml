@@ -30,6 +30,7 @@
                 android:id="@+id/tv_reply"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:lineSpacingExtra="8dp"
                 android:text="20"
                 android:textSize="16sp"
                 android:padding="10dp" />
