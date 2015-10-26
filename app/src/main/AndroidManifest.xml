@@ -3,34 +3,35 @@
     package="cn.lyh.problem">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".utils.ProblemApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".WelcomeActivity">
+        <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".QuizActivity" />
-        <activity android:name=".EnshrineActivity" />
-        <activity android:name=".ManuscriptActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".UserInfoActivity" />
-        <activity android:name=".ProblemActivity" />
-        <activity android:name=".AddReplyActivity" />
-        <activity android:name=".EditUserInfoActivity" />
-        <activity android:name=".TopicActivity" />
-        <activity android:name=".ProblemReplyActivity" />
-        <activity android:name=".MoreActivity" />
-        <activity android:name=".QuizedActivity" />
-        <activity android:name=".RepliedActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.QuizActivity" />
+        <activity android:name=".activity.EnshrineActivity" />
+        <activity android:name=".activity.ManuscriptActivity" />
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.UserInfoActivity" />
+        <activity android:name=".activity.ProblemActivity" />
+        <activity android:name=".activity.AddReplyActivity" />
+        <activity android:name=".activity.EditUserInfoActivity" />
+        <activity android:name=".activity.TopicActivity" />
+        <activity android:name=".activity.ProblemReplyActivity" />
+        <activity android:name=".activity.MoreActivity" />
+        <activity android:name=".activity.QuizedActivity" />
+        <activity android:name=".activity.RepliedActivity" />
     </application>
 
 </manifest>

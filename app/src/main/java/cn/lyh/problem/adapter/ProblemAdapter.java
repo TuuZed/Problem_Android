@@ -13,11 +13,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.lyh.problem.AddReplyActivity;
-import cn.lyh.problem.ProblemActivity;
-import cn.lyh.problem.ProblemReplyActivity;
+import cn.lyh.problem.activity.AddReplyActivity;
+import cn.lyh.problem.activity.ProblemReplyActivity;
 import cn.lyh.problem.R;
-import cn.lyh.problem.TopicActivity;
+import cn.lyh.problem.activity.TopicActivity;
 import cn.lyh.problem.model.Problem;
 import cn.lyh.problem.utils.ImagesUtils;
 

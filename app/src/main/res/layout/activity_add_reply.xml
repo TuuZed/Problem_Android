@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context="cn.lyh.problem.AddReplyActivity">
+    tools:context="cn.lyh.problem.activity.AddReplyActivity">
 
     <include layout="@layout/include_toolbar_layout"/>
 

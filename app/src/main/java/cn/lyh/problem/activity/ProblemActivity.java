@@ -1,4 +1,4 @@
-package cn.lyh.problem;
+package cn.lyh.problem.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,52 +20,62 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import cn.lyh.problem.adapter.METAdapter;
+import cn.lyh.problem.R;
+import cn.lyh.problem.adapter.ProblemAdapter;
 import cn.lyh.problem.model.Problem;
 import cn.lyh.problem.utils.ActivityManager;
 import cn.lyh.problem.utils.ConfigInfo;
 import cn.lyh.problem.utils.Tools;
 
-public class TopicActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
-
+public class ProblemActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private Toolbar mToolbar;
-    private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private METAdapter mAdapter = null;
+    private ProblemAdapter mAdapter = null;
+    private RecyclerView mRecyclerView;
 
-    private int page = 1;
+    private int pid = 0;
+    private String problem = null;
+
     private boolean isLast = false;
-    private int tid = 0;
-    private String topic = null;
+    private int page = 1;
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        page = 1;
+        mAdapter.removeAll();
+        getData(page++);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_topic);
+        setContentView(R.layout.activity_problem);
         initViews();
         initData();
-        initToobar();
+        initToolbar();
         initAdapter();
-
         getData(page++);
-    }
 
+
+    }
 
     private void initViews() {
         ActivityManager.getManager().addActivity(this);
         mToolbar = (Toolbar) findViewById(R.id.toobar);
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(this);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
     }
 
     private void initData() {
-        tid = getIntent().getIntExtra("tid", 0);
-        topic = getIntent().getStringExtra("topic");
+        pid = getIntent().getIntExtra("pid", 0);
+        problem = getIntent().getStringExtra("problem");
     }
 
-    private void initToobar() {
-        mToolbar.setTitle(topic);
+    private void initToolbar() {
+        mToolbar.setTitle(problem);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -79,10 +89,11 @@ public class TopicActivity extends AppCompatActivity implements SwipeRefreshLayo
     private int lastVisibleItem = 0;
 
     private void initAdapter() {
+        mAdapter = new ProblemAdapter(this,pid);
         final LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(llm);
-        mAdapter = new METAdapter(this, true, false, false);
         mRecyclerView.setAdapter(mAdapter);
+
 
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -105,13 +116,12 @@ public class TopicActivity extends AppCompatActivity implements SwipeRefreshLayo
             }
         });
 
-    }
 
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_topic, menu);
+        getMenuInflater().inflate(R.menu.menu_problem, menu);
         return true;
     }
 
@@ -128,65 +138,72 @@ public class TopicActivity extends AppCompatActivity implements SwipeRefreshLayo
 
     @Override
     public void onRefresh() {
-        if (!Tools.isNetworkAvailable(this)) {
-            Toast.makeText(TopicActivity.this, getResources().getString(R.string.networkunusable), Toast.LENGTH_SHORT).show();
+        if (!Tools.isNetworkAvailable(this)){
+            Toast.makeText(ProblemActivity.this, getResources().getString(R.string.networkunusable), Toast.LENGTH_SHORT).show();
             mSwipeRefreshLayout.setRefreshing(false);
             return;
         }
         mAdapter.removeAll();
         page = 1;
-        getData(page++);
+        getData(page);
     }
 
+
     private void getData(int page) {
-        if (!Tools.isNetworkAvailable(this)) {
-            Toast.makeText(TopicActivity.this, getResources().getString(R.string.networkunusable), Toast.LENGTH_SHORT).show();
+        if (!Tools.isNetworkAvailable(this)){
+            Toast.makeText(ProblemActivity.this, getResources().getString(R.string.networkunusable), Toast.LENGTH_SHORT).show();
             mSwipeRefreshLayout.setRefreshing(false);
             return;
         }
         FinalHttp fh = new FinalHttp();
         AjaxParams params = new AjaxParams();
-        params.put("tid", tid + "");
         params.put("page", (page++) + "");
-        fh.post(ConfigInfo.URL.TIDQUIZAT, params, new AjaxCallBack<String>() {
+        params.put("pid", pid + "");
+        fh.post(ConfigInfo.URL.PIDQUIZALL, params, new AjaxCallBack<String>() {
             @Override
             public void onSuccess(String s) {
                 super.onSuccess(s);
                 try {
-
-                    JSONObject object = new JSONObject(s.replace("null,", ""));
+                    JSONObject object = new JSONObject(s);
                     if (object.getInt("code") == 100) {
+                        mSwipeRefreshLayout.setRefreshing(false);
                         isLast = object.getBoolean("last");
                         mAdapter.setIsLast(isLast);
-                        JSONArray array = object.getJSONArray("problems");
+                        Problem head = new Problem();
+                        head.setProblem(object.getString("problem"));
+                        head.settId(object.getInt("tid"));
+                        head.setTopic(object.getString("topic"));
+                        head.setExplain(object.getString("explain"));
+                        mAdapter.setHead(head);
+                        JSONArray array = object.getJSONArray("replys");
                         for (int i = 0; i < array.length(); i++) {
-                            Problem p = new Problem();
                             JSONObject obj = array.getJSONObject(i);
-                            p.setReply(obj.getString("reply"));
-                            p.setrId(obj.getInt("rid"));
-                            p.setName(obj.getString("name"));
+                            Problem p = new Problem();
                             p.setuId(obj.getInt("uid"));
-                            p.setProblem(obj.getString("problem"));
-                            p.setpId(obj.getInt("pid"));
                             p.setPraise(obj.getInt("praise"));
                             p.setSex(obj.getString("sex"));
+                            p.setrId(obj.getInt("rid"));
+                            p.setName(obj.getString("name"));
+                            p.setReply(obj.getString("reply"));
                             mAdapter.addItem(p);
+
                         }
                     } else {
-                        //Toast.makeText(TopicActivity.this, "没有更多了", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(ProblemActivity.this, "没有更多了", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
-                    //Toast.makeText(TopicActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ProblemActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
+
+
             }
 
             @Override
             public void onFailure(Throwable t, int errorNo, String strMsg) {
                 super.onFailure(t, errorNo, strMsg);
-                Toast.makeText(TopicActivity.this, getResources().getString(R.string.connection_timeout), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProblemActivity.this,getResources().getString(R.string.connection_timeout) , Toast.LENGTH_SHORT).show();
             }
         });
-
-        mSwipeRefreshLayout.setRefreshing(false);
     }
+
 }

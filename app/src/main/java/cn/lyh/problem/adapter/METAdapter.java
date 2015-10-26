@@ -23,11 +23,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.lyh.problem.AddReplyActivity;
-import cn.lyh.problem.ProblemActivity;
-import cn.lyh.problem.ProblemReplyActivity;
+import cn.lyh.problem.activity.AddReplyActivity;
+import cn.lyh.problem.activity.ProblemActivity;
+import cn.lyh.problem.activity.ProblemReplyActivity;
 import cn.lyh.problem.R;
-import cn.lyh.problem.TopicActivity;
+import cn.lyh.problem.activity.TopicActivity;
 import cn.lyh.problem.model.Problem;
 import cn.lyh.problem.utils.ConfigInfo;
 import cn.lyh.problem.utils.ImagesUtils;

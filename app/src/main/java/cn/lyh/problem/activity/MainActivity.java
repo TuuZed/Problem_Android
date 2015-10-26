@@ -1,4 +1,4 @@
-package cn.lyh.problem;
+package cn.lyh.problem.activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -30,6 +32,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import cn.lyh.problem.R;
 import cn.lyh.problem.adapter.DrawerAdapter;
 import cn.lyh.problem.adapter.METAdapter;
 import cn.lyh.problem.model.Problem;
@@ -53,6 +56,8 @@ public class MainActivity extends ActionBarActivity implements SwipeRefreshLayou
     private SharedPreferences sp = null;
 
 
+    private Handler mHandler;
+
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -63,6 +68,35 @@ public class MainActivity extends ActionBarActivity implements SwipeRefreshLayou
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mHandler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                if (msg.arg1 == 0x123) {
+                    findViewById(R.id.rl_progress).setVisibility(View.GONE);
+                    findViewById(R.id.rl_content).setVisibility(View.VISIBLE);
+                }
+            }
+        };
+
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                boolean is = true;
+                while (is) {
+                    if (ConfigInfo.URL.isGetServerAddress) {
+                        is = false;
+                        Message message = new Message();
+                        message.arg1 = 0x123;
+                        mHandler.sendMessage(message);
+                    }
+                }
+            }
+        }.start();
+
+
         initViews();
         initToolbar();
         initDrawer();
@@ -81,6 +115,7 @@ public class MainActivity extends ActionBarActivity implements SwipeRefreshLayou
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
     }
+
     //初始化Toolbar
     private void initToolbar() {
         mToolbar.setTitle(getResources().getString(R.string.home));
@@ -101,15 +136,17 @@ public class MainActivity extends ActionBarActivity implements SwipeRefreshLayou
             }
         });
     }
+
     //初始化抽屉
     private void initDrawer() {
         DrawerAdapter adapter = new DrawerAdapter(this, mDrawerLayout);
         mListView.setAdapter(adapter);
 
     }
+
     //初始化适配器
     private void initAdapter() {
-        mAdapter = new METAdapter(this, false, false,false);
+        mAdapter = new METAdapter(this, false, false, false);
         mRecyclerView.setAdapter(mAdapter);
         final LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(llm);
@@ -141,8 +178,9 @@ public class MainActivity extends ActionBarActivity implements SwipeRefreshLayou
         });
 
     }
+
     //初始化数据
-    private void initData(){
+    private void initData() {
         sp = getSharedPreferences("main", MODE_PRIVATE);
         if (Tools.isNetworkAvailable(this)) {
             getData(page++);
@@ -151,6 +189,7 @@ public class MainActivity extends ActionBarActivity implements SwipeRefreshLayou
             analyze(sp.getString("main", null));
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -252,7 +291,7 @@ public class MainActivity extends ActionBarActivity implements SwipeRefreshLayou
             @Override
             public void onFailure(Throwable t, int errorNo, String strMsg) {
                 super.onFailure(t, errorNo, strMsg);
-                Toast.makeText(MainActivity.this,getResources().getString(R.string.connection_timeout) , Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.connection_timeout), Toast.LENGTH_SHORT).show();
             }
         });
 

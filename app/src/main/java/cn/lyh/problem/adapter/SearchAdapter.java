@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.lyh.problem.ProblemActivity;
+import cn.lyh.problem.activity.ProblemActivity;
 import cn.lyh.problem.R;
 import cn.lyh.problem.model.Problem;
 

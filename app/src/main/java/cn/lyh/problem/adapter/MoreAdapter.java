@@ -14,10 +14,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.lyh.problem.ProblemActivity;
-import cn.lyh.problem.QuizActivity;
+import cn.lyh.problem.activity.ProblemActivity;
+import cn.lyh.problem.activity.QuizActivity;
 import cn.lyh.problem.R;
-import cn.lyh.problem.TopicActivity;
+import cn.lyh.problem.activity.TopicActivity;
 import cn.lyh.problem.model.Problem;
 
 

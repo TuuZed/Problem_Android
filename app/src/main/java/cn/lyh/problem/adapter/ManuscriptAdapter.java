@@ -9,11 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
-import cn.lyh.problem.AddReplyActivity;
+import cn.lyh.problem.activity.AddReplyActivity;
 import cn.lyh.problem.R;
 import cn.lyh.problem.db.ManuscriptDb;
 import cn.lyh.problem.model.Problem;

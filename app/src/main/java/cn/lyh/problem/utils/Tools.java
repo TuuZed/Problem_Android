@@ -7,6 +7,9 @@ import android.net.NetworkInfo;
 import android.util.Base64;
 
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,6 +17,26 @@ import java.util.regex.Pattern;
  * Created by LYH on 2015/9/29.
  */
 public class Tools {
+    public static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+    /**
+     * 计算两个日期之间相差几天
+     *
+     * @param smdate
+     * @param bdate
+     * @return
+     * @throws ParseException
+     */
+    public static int daysBetween(String smdate, String bdate) throws ParseException {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(sdf.parse(smdate));
+        long time1 = cal.getTimeInMillis();
+        cal.setTime(sdf.parse(bdate));
+        long time2 = cal.getTimeInMillis();
+        long between_days = (time2 - time1) / (1000 * 3600 * 24);
+        return Integer.parseInt(String.valueOf(between_days));
+    }
+
 
     public static boolean isEmail(String email) {
         String check = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";

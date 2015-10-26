@@ -1,4 +1,4 @@
-package cn.lyh.problem;
+package cn.lyh.problem.activity;
 
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import cn.lyh.problem.R;
 import cn.lyh.problem.adapter.ManuscriptAdapter;
 import cn.lyh.problem.utils.ActivityManager;
 

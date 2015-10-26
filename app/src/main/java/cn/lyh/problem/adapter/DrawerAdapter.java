@@ -2,7 +2,6 @@ package cn.lyh.problem.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.widget.DrawerLayout;
@@ -13,14 +12,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import cn.lyh.problem.EnshrineActivity;
-import cn.lyh.problem.ManuscriptActivity;
-import cn.lyh.problem.MoreActivity;
-import cn.lyh.problem.QuizActivity;
+import cn.lyh.problem.activity.EnshrineActivity;
+import cn.lyh.problem.activity.ManuscriptActivity;
+import cn.lyh.problem.activity.MoreActivity;
+import cn.lyh.problem.activity.QuizActivity;
 import cn.lyh.problem.R;
-import cn.lyh.problem.UserInfoActivity;
+import cn.lyh.problem.activity.UserInfoActivity;
 import cn.lyh.problem.utils.ConfigInfo;
 import cn.lyh.problem.utils.ImagesUtils;
 

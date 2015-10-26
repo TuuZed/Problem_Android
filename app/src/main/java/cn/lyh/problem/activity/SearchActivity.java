@@ -1,4 +1,4 @@
-package cn.lyh.problem;
+package cn.lyh.problem.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,8 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import cn.lyh.problem.R;
 import cn.lyh.problem.adapter.SearchAdapter;
 import cn.lyh.problem.model.Problem;
 import cn.lyh.problem.utils.ActivityManager;

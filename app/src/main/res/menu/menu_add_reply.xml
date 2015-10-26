@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context="cn.lyh.problem.QuizActivity">
+    xmlns:tools="http://schemas.android.com/tools" tools:context="cn.lyh.problem.activity.QuizActivity">
 
     <item android:id="@+id/action_release"
         android:title="@string/action_release"

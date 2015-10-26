@@ -1,8 +1,10 @@
-package cn.lyh.problem;
+package cn.lyh.problem.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -20,6 +22,7 @@ import net.tsz.afinal.http.AjaxParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import cn.lyh.problem.R;
 import cn.lyh.problem.db.UserDb;
 import cn.lyh.problem.model.User;
 import cn.lyh.problem.utils.ActivityManager;
@@ -32,10 +35,42 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private UserDb mUserDb;
     private RelativeLayout rr_pb;
 
+    private Handler mHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        mHandler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                if (msg.arg1 == 0x123) {
+                    findViewById(R.id.rl_progress).setVisibility(View.GONE);
+                    findViewById(R.id.rl_content).setVisibility(View.VISIBLE);
+                }
+            }
+        };
+
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                boolean is = true;
+                while (is) {
+                    if (ConfigInfo.URL.isGetServerAddress) {
+                        is = false;
+                        Message message = new Message();
+                        message.arg1 = 0x123;
+                        mHandler.sendMessage(message);
+                    }
+                }
+            }
+        }.start();
+
+
+
         initViews();
         mUserDb = new UserDb(WelcomeActivity.this);
         init();

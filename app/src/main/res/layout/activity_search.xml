@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context="cn.lyh.problem.QuizActivity">
+    tools:context="cn.lyh.problem.activity.QuizActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toobar"

@@ -1,30 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    tools:context="club.shuifou.MainActivity" >
-    <RelativeLayout
-        android:id="@+id/rr_pb"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:background="#9FFF"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"
-        android:layout_centerVertical="true">
-        <ProgressBar
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+    android:background="@drawable/bg">
 
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            />
-    </RelativeLayout>
     <RelativeLayout
-        android:id="@+id/rl"
+        android:id="@+id/rl_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp" >
+        android:padding="20dp"
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/textView1"
@@ -50,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="80dp"
-            android:gravity="center_horizontal" >
+            android:gravity="center_horizontal">
 
             <Button
                 android:id="@+id/btn_reg"
@@ -73,4 +57,42 @@
         </LinearLayout>
     </RelativeLayout>
 
-</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rr_pb"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="#9FFF"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="获取服务器地址" />
+    </RelativeLayout>
+</FrameLayout>

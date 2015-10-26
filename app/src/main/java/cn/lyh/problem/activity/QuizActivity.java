@@ -1,4 +1,4 @@
-package cn.lyh.problem;
+package cn.lyh.problem.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +18,7 @@ import net.tsz.afinal.http.AjaxParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import cn.lyh.problem.R;
 import cn.lyh.problem.utils.ActivityManager;
 import cn.lyh.problem.utils.ConfigInfo;
 import cn.lyh.problem.utils.Tools;

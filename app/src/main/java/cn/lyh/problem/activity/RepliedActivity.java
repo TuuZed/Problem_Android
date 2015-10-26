@@ -1,4 +1,4 @@
-package cn.lyh.problem;
+package cn.lyh.problem.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import cn.lyh.problem.R;
 import cn.lyh.problem.adapter.METAdapter;
 import cn.lyh.problem.model.Problem;
 import cn.lyh.problem.utils.ActivityManager;
