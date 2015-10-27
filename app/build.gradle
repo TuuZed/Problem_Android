@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "cn.lyh.problem"
-        minSdkVersion 19
+        minSdkVersion 14
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "0.1"
     }
     buildTypes {
         release {
