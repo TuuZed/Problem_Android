@@ -144,10 +144,10 @@ public class AddReplyActivity extends AppCompatActivity {
             finish();
             return;
         }
-        if (reply.equals(mEtReply.getText().toString())){
+        /*if (reply.equals(mEtReply.getText().toString())){
             finish();
             return;
-        }
+        }*/
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getResources().getString(R.string.save))
                 .setMessage(getResources().getString(R.string.sure_save_manuscript))
